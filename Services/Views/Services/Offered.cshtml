@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Services.Models.Service>
+
+@{
+    ViewBag.Title = "Offered";
+}
+<br />
+<br />
+<br />
+
+<div class="serve">
+    <h1 class="text-center"> Recent Offered Services </h1>
+    <br />
+    <a href="@Url.Action("Index", "Home")" class="btn btn-block btn-danger col-sm-4" style="font-size: 25px; margin-left: 365px;"><i class="fas fa-arrow-left"></i> Go back</a>
+    <br />
+    <hr />
+
+
+
+    <table id="tblInfo" class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Desription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Startdate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Enddate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ApplicationUser.Email)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Desription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Startdate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Enddate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ApplicationUser.Email)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#tblInfo').dataTable();
+    });
+
+</script>
